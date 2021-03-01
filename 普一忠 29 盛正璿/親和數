@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    cout << "親和數" << "  |  搭配的數\n";
+    int a,b,c,ans=0,d[20],e=0;
+    for(int i=2; i<100000; i++){
+        b=1;
+        a=i;
+        for(int j=2; j<=sqrt(a); j++){
+            if(!(a%j)){
+                b+=j;
+                b+=a/j;
+            }
+        }
+        c=1;
+        for(int k=2; k<=sqrt(b); k++){
+            if(!(b%k)){
+                c+=k;
+                c+=b/k;
+            }
+        }
+        if(a==c){
+            cout << setw(6) << a << "  |" << setw(10) << b << "\n";
+        }
+    }
+}
