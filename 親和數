@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    int a,b,t1=0,t2=0;
+    cin >> a >> b;
+    cout << "\n";
+    for(int i = 1 ; i <= sqrt(a) ; i++){
+        if(a % i ==0 ){
+            cout << a /( a / i ) << "\n" ;
+            cout << a / i << "\n" ;
+            if( ( a /( a / i ) ) == ( a / i ) ){
+                t1+= ( a /( a / i ) ) + ( a / i ) - sqrt(a);
+            }else{
+                t1+= ( a /( a / i ) ) + ( a / i ) ;
+            }
+        }
+    }
+
+    cout << "\n" ;
+
+    for(int i = 1 ; i <= sqrt(b) ; i++){
+        if(b % i ==0 ){
+            cout << b /( b / i ) << "\n" ;
+            cout << b / i << "\n" ;
+            if( ( b /( b / i ) ) == ( b / i ) ){
+                t2+=b /( b / i ) + b / i - sqrt(b);
+            }else{
+                t2+=b /( b / i ) + b / i ;
+            }
+        }
+    }
+    cout << t1 - a << "\n";
+    cout << t2 - b << "\n";
+    if( t1 - a == b && t2 - b == a ){
+        cout << "true" ;
+    }else{
+        cout << "false" ;
+    }
+}
